@@ -13,14 +13,14 @@
         }
     },
     "description": "More information available at https://pear.php.net/package/Services_OpenStreetMap",
-    "homepage": "https://github.com/kenguest/Services_Openstreetmap",
+    "homepage": "https://github.com/nono303/Services_Openstreetmap",
     "include-path": [
         "./",
 	"vendor/pear/http_request2"
     ],
     "keywords": ["openstreetmap", "open", "street", "map", "osm", "maps", "openstreetmaps"],
     "license": "BSD-3-Clause",
-    "name": "kenguest/services-openstreetmap",
+    "name": "nono303/services-openstreetmap",
     "type": "library",
     "require": {
         "php": ">=7.4",
@@ -43,6 +43,6 @@
     },
     "support": {
         "issues": "https://pear.php.net/bugs/search.php?cmd=display&package_name[]=Services_OpenStreetMap",
-        "source": "https://github.com/kenguest/Services_Openstreetmap"
+        "source": "https://github.com/nono303/Services_Openstreetmap"
     }
 }
