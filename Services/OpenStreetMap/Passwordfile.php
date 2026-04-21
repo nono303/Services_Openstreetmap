@@ -16,6 +16,7 @@
 class Services_OpenStreetMap_Passwordfile
 {
     public $user = null;
+    public $password = null;
     public $passwordfile = null;
 
     /**

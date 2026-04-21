@@ -212,7 +212,7 @@ class Services_OpenStreetMap_Config
      * @throws Services_OpenStreetMap_InvalidArgumentException If the parameter
      *                                                         is unknown
      */
-    public function getValue(string $name = null)
+    public function getValue(string|null $name)
     {
         if ($name === null) {
             return $this->config;
@@ -413,7 +413,7 @@ class Services_OpenStreetMap_Config
      *
      * @return Services_OpenStreetMap_Config
      */
-    public function setPasswordfile(string $file, string $user = null): Services_OpenStreetMap_Config
+    public function setPasswordfile(string $file, string|null $user = null): Services_OpenStreetMap_Config
     {
         if ($user === null) {
             $user = $this->config['user'];

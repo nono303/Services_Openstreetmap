@@ -218,7 +218,7 @@ class Services_OpenStreetMap_Nominatim
      *
      * @return mixed
      */
-    public function search(string $place, int $limit = null)
+    public function search(string $place, int|null $limit = null)
     {
         if ($limit !== null) {
             $this->setLimit($limit);

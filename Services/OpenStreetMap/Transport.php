@@ -78,8 +78,8 @@ interface Services_OpenStreetMap_Transport
     public function getObject(
         string $type,
         string $id,
-        string $version = null,
-        string $append = null
+        string|null $version = null,
+        string|null $append = null
     ): ?Services_OpenStreetMap_Object;
 
     /**
@@ -112,11 +112,11 @@ interface Services_OpenStreetMap_Transport
     public function getResponse(
         string $url,
         string $method = HTTP_Request2::METHOD_GET,
-        string $user = null,
-        string $password = null,
-        string $body = null,
-        array $post_data = null,
-        array $headers = null
+        string|null $user = null,
+        string|null $password = null,
+        string|null $body = null,
+        array|null $post_data = null,
+        array|null $headers = null
     ): HTTP_Request2_Response;
 
     /**

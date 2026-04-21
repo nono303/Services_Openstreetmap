@@ -36,7 +36,7 @@ class Services_OpenStreetMap_OpeningHours
      *
      * @param string $value An opening_hours value
      */
-    public function __construct(string $value = null)
+    public function __construct(string|null $value = null)
     {
         $this->value = $value;
     }
@@ -64,7 +64,7 @@ class Services_OpenStreetMap_OpeningHours
      * @link   http://wiki.openstreetmap.org/wiki/Key:opening_hours
      * @return null|boolean
      */
-    public function isOpen(?int $time = null): ?bool
+    public function isOpen(?int|null $time = null): ?bool
     {
         if ($time === null) {
             $time = time();

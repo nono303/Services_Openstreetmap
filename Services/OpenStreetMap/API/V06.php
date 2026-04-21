@@ -164,7 +164,7 @@ class Services_OpenStreetMap_API_V06
      */
     public function getChangeset(
         string $id,
-        string $version = null
+        string|null $version = null
     ): Services_OpenStreetMap_Object {
         return $this->getTransport()->getObject('changeset', $id, $version);
     }
