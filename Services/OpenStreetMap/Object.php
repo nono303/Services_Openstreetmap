@@ -196,23 +196,19 @@ class Services_OpenStreetMap_Object
             $tags = $xpath->query("//{$objectType}/tag");
 
             $set = [];
-            for ($i = 0; $i < $tags->length; $i++) {
-                $key = $tags->item($i)->getAttribute('k');
-                $val = $tags->item($i)->getAttribute('v');
-                $set[$key] = $val;
-            }
+            for ($i = 0; $i < $tags->length; $i++)
+                $set[$tags->item($i)->getAttribute('k')] = $tags->item($i)->getAttribute('v');
 
-            $diff = array_diff_assoc($this->getTags(), $set);
+            $diffadd = array_diff_assoc($this->getTags(), $set);
+			$diffrem = array_diff_assoc($set, $this->getTags());
 
-            // Remove existing tags
-            for ($i = 0; $i < $tags->length; $i++) {
-                $rkey = $tags->item($i)->getAttribute('k');
-                if (isset($diff[$rkey])) {
+            // delete removed tags
+            for ($i = 0; $i < $tags->length; $i++)
+                if (isset($diffrem[$tags->item($i)->getAttribute('k')]))
                     $nodelist->item(0)->removeChild($tags->item($i));
-                }
-            }
 
-            foreach ($diff as $key => $value) {
+            // create added tags
+            foreach ($diffadd as $key => $value) {
                 $new = $domd->createElement('tag');
                 $new->setAttribute('k', $key);
                 $new->setAttribute('v', $value);
@@ -529,6 +525,7 @@ class Services_OpenStreetMap_Object
         if (isset($this->tags[$key])) {
             unset($this->tags[$key]);
             $this->dirty = true;
+            $this->action = 'modify';
         }
         return $this;
     }
@@ -560,6 +557,7 @@ class Services_OpenStreetMap_Object
             if (isset($tags[$key])) {
                 unset($tags[$key]);
                 $this->dirty = true;
+                $this->action = 'modify';
             }
         }
         $this->tags = $tags;
