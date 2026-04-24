@@ -16,7 +16,7 @@
     "homepage": "https://github.com/nono303/Services_Openstreetmap",
     "include-path": [
         "./",
-	"vendor/pear/http_request2"
+	"../../pear/http_request2/"
     ],
     "keywords": ["openstreetmap", "open", "street", "map", "osm", "maps", "openstreetmaps"],
     "license": "BSD-3-Clause",
